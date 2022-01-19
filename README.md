@@ -7,6 +7,3 @@ Templates are organized by the context. For example, a form on a landing page wi
 # Intended Audience
 Right now, just for me :) But feel free to use.
 
-
-
-
