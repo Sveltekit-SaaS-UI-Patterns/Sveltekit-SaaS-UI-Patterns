@@ -2,11 +2,14 @@
 	import GoRight from '$lib/icons/GoRight.svelte';
 	export let textColor = undefined;
 	export let alignment;
+	export let parentSlots;
 
 	const copyClasses = `copyConatiner flex flex-col items-${alignment} justify-center w-full lg:max-w-lg`;
 	const overtitleClasses =
 		'inline-block px-2 py-1 mb-5 font-medium tracking-wider text-gray-900 uppercase bg-gray-200 rounded-full text-xxs';
-	const titleClasses = `mb-3 text-3xl font-extrabold leading-none sm:text-4xl lg:text-7xl ${alignment === 'center' ? 'text-center' : ''}`;
+	const titleClasses = `mb-3 text-3xl font-extrabold leading-none sm:text-4xl lg:text-7xl ${
+		alignment === 'center' ? 'text-center' : ''
+	}`;
 	const explainerClasses = 'py-5 mb-5 lg:text-xl';
 	const actionsClasses = 'flex items-center';
 	const ctaButtonClasses =
@@ -16,21 +19,23 @@
 </script>
 
 <div class={copyClasses} style={`color: ${textColor}`}>
-	{#if $$slots.overtitle}
+	{#if parentSlots.overtitle}
 		<p class={overtitleClasses}><slot name="overtitle" /></p>
 	{/if}
-	{#if $$slots.title}
+	{#if parentSlots.title}
 		<h5 class={titleClasses}><slot name="title" /></h5>
 	{/if}
-	{#if $$slots.explainer}
+	{#if parentSlots.explainer}
 		<p class={explainerClasses}><slot name="explainer" /></p>
 	{/if}
-	{#if $$slots.explainer}
+	{#if parentSlots.cta || parentSlots.details}
 		<div class={actionsClasses}>
-			<button type="submit" class={ctaButtonClasses}>
-				<slot name="cta" />
-			</button>
-			{#if $$slots.details}
+			{#if parentSlots.cta}
+				<button type="submit" class={ctaButtonClasses}>
+					<slot name="cta" />
+				</button>
+			{/if}
+			{#if parentSlots.details}
 				<a href="/" aria-label="" class={detailsLinkClasses}><slot name="details" /><GoRight /></a>
 			{/if}
 		</div>

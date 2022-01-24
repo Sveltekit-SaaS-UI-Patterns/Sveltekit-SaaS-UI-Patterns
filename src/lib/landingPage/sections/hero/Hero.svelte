@@ -25,12 +25,15 @@
 	let copyAttrs;
 	$: copyAttrs = {
 		textColor,
+		parentSlots: $$slots,
 		alignment: alignment ? alignment : computeAlignment(layout)
+
 	};
 
 	const sectionClasses = 'section flex flex-col w-full overflow-hidden lg:flex-row sm:mx-auto';
 	const copyContainer = 'lhs flex justify-end p-8 lg:py-32 lg:px-16 lg:pl-10 lg:w-1/2';
 	const pictureContainer = 'rhs relative lg:w-1/2';
+
 </script>
 
 <section class={sectionClasses} style={`background-color: ${bgColor}`}>
