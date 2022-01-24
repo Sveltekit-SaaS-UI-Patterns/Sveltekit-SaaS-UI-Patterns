@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Close from '$lib/icons/Close.svelte';
 	import Hamburger from '$lib/icons/Hamburger.svelte';
-	import Benefits from './sections/Benefits.svelte';
+	import Benefits from '../sections/Benefits.svelte';
 
 	export let bgColor = 'white';
 	export let color = 'black';

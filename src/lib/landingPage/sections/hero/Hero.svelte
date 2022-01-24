@@ -5,7 +5,14 @@
 	export let bgColor = 'transparent';
 
 	/** Background image. Defaults to to tacos */
-	export let imgUrl = 'https://www.pexels.com/photo/4577740/download';
+	const demoImgUrls = [
+		'https://www.pexels.com/photo/373246/download?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+		'https://www.pexels.com/photo/1119972/download?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+		'https://www.pexels.com/photo/814499/download?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+		'https://www.pexels.com/photo/280221/download?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+	]
+	// set imgUrl to a random image from demoImgUrls
+	export let imgUrl = demoImgUrls[Math.floor(Math.random() * demoImgUrls.length)];
 
 	/** Text color of copy. Defaults to to inherit */
 	export let textColor = 'inherit';
